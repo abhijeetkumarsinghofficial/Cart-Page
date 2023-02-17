@@ -14,10 +14,24 @@ class Cart extends React.Component {
         }}
 
         increaseQuantity=()=>{
-            console.log("hi",this.state);
+            // this.state.qty= this.state.qty+1;
+            console.log("Clicked",this.state);
+            //increasing the quantity mehtod 1
+            // this.setState({qty:this.state.qty+1});
+
+            //increasing the quantity mehtod 2, use when previous state is required
+            this.setState((prev)=>{
+                return{qty:prev.qty+1}
+            });
         }
 
-
+        decreaseQuantity=()=>{
+            // console.log("Clicked",this.state);
+            this.setState({
+                
+                qty:this.state.qty-1
+            });
+        }
   render() {
       // object destructuring
       const {price,title,qty} = this.state;
@@ -39,7 +53,7 @@ class Cart extends React.Component {
 
         <div className="cart-item-actions"> 
         <img alt="inc" className='action-items' src="https://cdn-icons-png.flaticon.com/512/1828/1828817.png" onClick={this.increaseQuantity} />
-        <img alt="dec" className='action-items' src="https://cdn-icons-png.flaticon.com/512/9068/9068779.png"/>
+        <img alt="dec" className='action-items' src="https://cdn-icons-png.flaticon.com/512/9068/9068779.png" onClick={this.decreaseQuantity}/>
         <img alt="rem" className='action-items' src="https://cdn-icons-png.flaticon.com/512/9221/9221441.png"/>
 
         </div>
