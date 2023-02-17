@@ -9,6 +9,8 @@ root.render(
   <React.StrictMode>
     {/* <App /> */}
     <Cart />
+    <Cart />
+    <Cart />
 
   </React.StrictMode>
 );

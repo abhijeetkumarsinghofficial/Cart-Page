@@ -26,11 +26,17 @@ class Cart extends React.Component {
         }
 
         decreaseQuantity=()=>{
-            // console.log("Clicked",this.state);
+            // using destructuring
+            const {qty} = this.state;
+            console.log(qty);
+            if(qty!==0){
+
             this.setState({
                 
                 qty:this.state.qty-1
             });
+            }
+        
         }
   render() {
       // object destructuring
@@ -39,23 +45,19 @@ class Cart extends React.Component {
 
 
       <div className='cart-item' >
-        <h1>Cart</h1>
         <div className="left-block">
             <img style={styles.image} />
-            
         </div>
         <div className="right-block">
-            <div style={{fontSize:45}} > {this.state.title} </div>
+            <div style={{fontSize:40}} > {this.state.title} </div>
             <div style ={{color:'#777'}}> {price} </div>
             <div style ={{color:'#777'}} >Qty: {qty}</div>
-
-        </div>
 
         <div className="cart-item-actions"> 
         <img alt="inc" className='action-items' src="https://cdn-icons-png.flaticon.com/512/1828/1828817.png" onClick={this.increaseQuantity} />
         <img alt="dec" className='action-items' src="https://cdn-icons-png.flaticon.com/512/9068/9068779.png" onClick={this.decreaseQuantity}/>
         <img alt="rem" className='action-items' src="https://cdn-icons-png.flaticon.com/512/9221/9221441.png"/>
-
+        </div>
         </div>
       </div>
     );
