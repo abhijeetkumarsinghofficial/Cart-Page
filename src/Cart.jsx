@@ -1,17 +1,17 @@
 import React from 'react';
 import img from './shoe.jpeg';
-
+import CartList from './CartList';
 
 class Cart extends React.Component {
 
-    constructor(){
-        super();
-        this.state={
-           price:993,
-           title:'Phone', 
-           qty:1,
-           img:''
-        }}
+    // constructor(){
+    //     super();
+    //     this.state={
+    //        price:993,
+    //        title:'Phone', 
+    //        qty:1,
+    //        img:''
+    //     }}
 
         increaseQuantity=()=>{
             // this.state.qty= this.state.qty+1;
@@ -40,7 +40,7 @@ class Cart extends React.Component {
         }
   render() {
       // object destructuring
-      const {price,title,qty} = this.state;
+      const {price,title,qty} = this.props.product;
     return (
 
 
@@ -49,9 +49,9 @@ class Cart extends React.Component {
             <img style={styles.image} />
         </div>
         <div className="right-block">
-            <div style={{fontSize:40}} > {this.state.title} </div>
+        <div style={{fontSize:40}} > {title} </div>
             <div style ={{color:'#777'}}> {price} </div>
-            <div style ={{color:'#777'}} >Qty: {qty}</div>
+            <div style ={{color:'#777'}} >Qty:{qty}</div>
 
         <div className="cart-item-actions"> 
         <img alt="inc" className='action-items' src="https://cdn-icons-png.flaticon.com/512/1828/1828817.png" onClick={this.increaseQuantity} />
