@@ -4,6 +4,7 @@ import CartList from './CartList';
 
 class Cart extends React.Component {
 
+
     // constructor(){
     //     super();
     //     this.state={
@@ -13,37 +14,38 @@ class Cart extends React.Component {
     //        img:''
     //     }}
 
-        increaseQuantity=()=>{
+        // increaseQuantity=()=>{
             // this.state.qty= this.state.qty+1;
-            console.log("Clicked",this.state);
+            // console.log("Clicked",this.state);
             //increasing the quantity mehtod 1
             // this.setState({qty:this.state.qty+1});
 
             //increasing the quantity mehtod 2, use when previous state is required
-            this.setState((prev)=>{
-                return{qty:prev.qty+1}
-            });
-        }
+        //     this.setState((prev)=>{
+        //         return{qty:prev.qty+1}
+        //     });
+        // }
 
-        decreaseQuantity=()=>{
+        // decreaseQuantity=()=>{
             // using destructuring
-            const {qty} = this.state;
-            console.log(qty);
-            if(qty!==0){
+        //     const {qty} = this.state;
+        //     console.log(qty);
+        //     if(qty!==0){
 
-            this.setState({
+        //     this.setState({
                 
-                qty:this.state.qty-1
-            });
-            }
+        //         qty:this.state.qty-1
+        //     });
+        //     }
         
-        }
+        // }
+
   render() {
+
+    const {product,onIncreaseQuantity,onDecreaseQuantity,onDeleteQuantity} = this.props;
       // object destructuring
       const {price,title,qty} = this.props.product;
     return (
-
-
       <div className='cart-item' >
         <div className="left-block">
             <img style={styles.image} />
@@ -54,9 +56,9 @@ class Cart extends React.Component {
             <div style ={{color:'#777'}} >Qty:{qty}</div>
 
         <div className="cart-item-actions"> 
-        <img alt="inc" className='action-items' src="https://cdn-icons-png.flaticon.com/512/1828/1828817.png" onClick={this.increaseQuantity} />
-        <img alt="dec" className='action-items' src="https://cdn-icons-png.flaticon.com/512/9068/9068779.png" onClick={this.decreaseQuantity}/>
-        <img alt="rem" className='action-items' src="https://cdn-icons-png.flaticon.com/512/9221/9221441.png"/>
+        <img alt="inc" className='action-items' src="https://cdn-icons-png.flaticon.com/512/1828/1828817.png" onClick={()=>onIncreaseQuantity(product)} />
+        <img alt="dec" className='action-items' src="https://cdn-icons-png.flaticon.com/512/9068/9068779.png" onClick={()=>onDecreaseQuantity(product)}/>
+        <img alt="rem" className='action-items' src="https://cdn-icons-png.flaticon.com/512/9221/9221441.png" onClick={()=>onDeleteQuantity(product.id)}/>
         </div>
         </div>
       </div>
