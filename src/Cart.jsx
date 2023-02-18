@@ -2,7 +2,8 @@ import React from 'react';
 import img from './shoe.jpeg';
 import CartList from './CartList';
 
-class Cart extends React.Component {
+// class Cart extends React.Component {
+const Cart = (props) => {
 
 
     // constructor(){
@@ -40,15 +41,15 @@ class Cart extends React.Component {
         
         // }
 
-  render() {
+//   render() {
 
-    const {product,onIncreaseQuantity,onDecreaseQuantity,onDeleteQuantity} = this.props;
+    const {product,onIncreaseQuantity,onDecreaseQuantity,onDeleteQuantity} = props;
       // object destructuring
-      const {price,title,qty} = this.props.product;
+      const {price,title,qty} = props.product;
     return (
       <div className='cart-item' >
         <div className="left-block">
-            <img style={styles.image} />
+            <img style={styles.image} src={product.img} />
         </div>
         <div className="right-block">
         <div style={{fontSize:40}} > {title} </div>
@@ -64,7 +65,7 @@ class Cart extends React.Component {
       </div>
     );
   }
-}
+
 
  const styles ={
     image:{
